@@ -31,9 +31,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-pz-cjE">
+                                <rect key="frame" x="16" y="330" width="106.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAh-R1-SoM">
+                                <rect key="frame" x="16" y="365.5" width="93" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5t-CI-t7g" customClass="RoundButton" customModule="TinkoffChat" customModuleProvider="target">
                                 <rect key="frame" x="16" y="509" width="288" height="39"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Редактировать">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,18 +62,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx4-pz-cjE">
-                                <rect key="frame" x="16" y="355" width="87" height="27"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAh-R1-SoM">
-                                <rect key="frame" x="16" y="385" width="93" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-T4-jeD" customClass="RoundButton" customModule="TinkoffChat" customModuleProvider="target">
                                 <rect key="frame" x="245" y="259" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.24705882352941178" green="0.47058823529411764" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,7 +101,7 @@
                             <constraint firstItem="Kp8-8z-lvJ" firstAttribute="top" secondItem="gRm-84-nUK" secondAttribute="top" constant="10" id="p02-0s-3OY"/>
                             <constraint firstItem="yAh-R1-SoM" firstAttribute="leading" secondItem="dx4-pz-cjE" secondAttribute="leading" id="rOp-YF-vN3"/>
                             <constraint firstItem="Y5t-CI-t7g" firstAttribute="leading" secondItem="gRm-84-nUK" secondAttribute="leading" constant="16" id="uBE-Vg-AMj"/>
-                            <constraint firstItem="dx4-pz-cjE" firstAttribute="top" secondItem="Kp8-8z-lvJ" secondAttribute="bottom" constant="37" id="vRJ-e2-06M"/>
+                            <constraint firstItem="dx4-pz-cjE" firstAttribute="top" secondItem="Kp8-8z-lvJ" secondAttribute="bottom" constant="12" id="vRJ-e2-06M"/>
                             <constraint firstItem="yAh-R1-SoM" firstAttribute="top" secondItem="dx4-pz-cjE" secondAttribute="bottom" constant="3" id="zCl-B2-nfA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gRm-84-nUK"/>
