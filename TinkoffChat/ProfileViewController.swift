@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         // Do any additional setup after loading the view, typically from a nib.
         self.createAlertController()
         uiProfilePicture.layer.cornerRadius = uiChangePhotoButton.layer.cornerRadius
-
+        
+        print(uiEditButton.frame)
     }
     
     func createImagePickerController(sourceType: UIImagePickerControllerSourceType, allowsEditing: Bool){
@@ -90,6 +91,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     func viewDidAppear() {
         print("Calling \(#function)")
+        
+        print(uiEditButton.frame)
     }
     
     override func viewWillLayoutSubviews() {
