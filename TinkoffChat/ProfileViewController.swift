@@ -40,9 +40,15 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func onCapturePhoto(action: UIAlertAction) {
-        print("Capture!")
-
         self.createImagePickerController(sourceType: .camera, allowsEditing: false)
+        
+        if !(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            let warningAlert = UIAlertController(title: "Ошибка!", message: "Невозможно использовать камеру", preferredStyle: .alert);
+            let closeAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+            
+            warningAlert.addAction(closeAction)
+            present(warningAlert, animated: true, completion: nil)
+        }
     }
     
     func onSelectPhotoFromGallery(action: UIAlertAction) {
