@@ -28,6 +28,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print(uiEditButton.frame)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("Calling \(#function)")
+        
+        print(uiEditButton.frame)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var profileImage: UIImage!
         
@@ -43,20 +51,24 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         picker.dismiss(animated:true, completion: nil)
     }
     
-    func createImagePickerController(sourceType: UIImagePickerControllerSourceType, allowsEditing: Bool) {
-        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-            uiImagePicker = UIImagePickerController()
-            uiImagePicker.delegate = self
-            uiImagePicker.sourceType = sourceType
-            uiImagePicker.allowsEditing = allowsEditing
-            present(uiImagePicker, animated: true, completion: nil)
+    func createImagePickerController(sourceType: UIImagePickerControllerSourceType, allowsEditing: Bool) -> Bool {
+        if !(UIImagePickerController.isSourceTypeAvailable(sourceType)) {
+            return false
         }
+        
+        uiImagePicker = UIImagePickerController()
+        uiImagePicker.delegate = self
+        uiImagePicker.sourceType = sourceType
+        uiImagePicker.allowsEditing = allowsEditing
+        present(uiImagePicker, animated: true, completion: nil)
+        
+        return true
     }
     
     func onCapturePhoto(action: UIAlertAction) {
-        createImagePickerController(sourceType: .camera, allowsEditing: false)
+        let isAvailable = createImagePickerController(sourceType: .camera, allowsEditing: false)
         
-        if !(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+        if !isAvailable {
             let warningAlert = createErrorAlert(message: "Невозможно использовать камеру")
             
             present(warningAlert, animated: true, completion: nil)
@@ -64,9 +76,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func onSelectPhotoFromGallery(action: UIAlertAction) {
-        createImagePickerController(sourceType: .photoLibrary, allowsEditing: true)
+        let isAvailable = createImagePickerController(sourceType: .photoLibrary, allowsEditing: true)
         
-        if !(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
+        if !isAvailable {
             let warningAlert = createErrorAlert(
                 title: "Непредвиденная ошибка",
                 message: "Невозможно получить доступ к галерее"
@@ -113,13 +125,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBAction func handleTapPhotoBtn(_ sender: RoundButton) {
         print("Выбери изображение профиля")
         present(createAlertController(), animated: true, completion: nil)
-    }
-    
-    
-    func viewDidAppear() {
-        print("Calling \(#function)")
-        
-        print(uiEditButton.frame)
     }
     
     override func didReceiveMemoryWarning() {
