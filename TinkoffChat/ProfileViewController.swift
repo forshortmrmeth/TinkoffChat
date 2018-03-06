@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
+
     @IBOutlet var uiEditButton: UIButton!
     @IBOutlet var uiTitle: UILabel!
     @IBOutlet var uiProfilePicture: UIImageView!
@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var profileImage: UIImage!
         
-        if    let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             profileImage = image
         }
         else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -49,12 +49,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             uiImagePicker.delegate = self
             uiImagePicker.sourceType = sourceType
             uiImagePicker.allowsEditing = allowsEditing
-            self.present(uiImagePicker, animated: true, completion: nil)
+            present(uiImagePicker, animated: true, completion: nil)
         }
     }
     
     func onCapturePhoto(action: UIAlertAction) {
-        self.createImagePickerController(sourceType: .camera, allowsEditing: false)
+        createImagePickerController(sourceType: .camera, allowsEditing: false)
         
         if !(UIImagePickerController.isSourceTypeAvailable(.camera)) {
             let warningAlert = createErrorAlert(message: "Невозможно использовать камеру")
@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func onSelectPhotoFromGallery(action: UIAlertAction) {
-        self.createImagePickerController(sourceType: .photoLibrary, allowsEditing: true)
+        createImagePickerController(sourceType: .photoLibrary, allowsEditing: true)
         
         if !(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
             let warningAlert = createErrorAlert(
@@ -114,14 +114,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print("Выбери изображение профиля")
         present(createAlertController(), animated: true, completion: nil)
     }
-  
+    
     
     func viewDidAppear() {
         print("Calling \(#function)")
         
         print(uiEditButton.frame)
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
