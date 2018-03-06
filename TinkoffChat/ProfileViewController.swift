@@ -17,14 +17,28 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     var uiImagePicker: UIImagePickerController!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+       
+        /*
+            На момент инициализации класса не загружена view,
+            соответственно мы не имеем доступа к компоненту Button
+        */
+        // print(uiEditButton.frame)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
         // Do any additional setup after loading the view, typically from a nib.
-        uiProfilePicture.layer.cornerRadius = uiChangePhotoButton.layer.cornerRadius
+        let cornerRadius = uiChangePhotoButton.bounds.width / 2
         
+        uiChangePhotoButton.layer.cornerRadius = cornerRadius
+        uiProfilePicture.layer.cornerRadius = cornerRadius
+        
+        // Размеры не отличаются
         print(uiEditButton.frame)
     }
     

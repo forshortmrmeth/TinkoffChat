@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,20 +37,22 @@
                                 <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-T4-jeD" customClass="RoundButton" customModule="TinkoffChat" customModuleProvider="target">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-T4-jeD" customClass="RoundButton" customModule="TinkoffChat" customModuleProvider="target">
                                 <rect key="frame" x="224" y="238" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.24705882352941178" green="0.47058823529411764" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lh1-T4-jeD" secondAttribute="height" multiplier="1:1" id="oRh-Xx-fRc"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="40"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.24705882352941178" green="0.47058823529411764" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -78,10 +81,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="slr-camera-2-xxl" translatesAutoresizingMaskIntoConstraints="NO" id="zTy-h4-4H1">
-                                <rect key="frame" x="241" y="255" width="46" height="46"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="slr-camera-2-xxl" translatesAutoresizingMaskIntoConstraints="NO" id="zTy-h4-4H1">
+                                <rect key="frame" x="240" y="254" width="48" height="48"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zTy-h4-4H1" secondAttribute="height" multiplier="1:1" id="Uin-UP-OKb"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,13 +94,20 @@
                             <constraint firstItem="dx4-pz-cjE" firstAttribute="top" secondItem="Kp8-8z-lvJ" secondAttribute="bottom" constant="14" id="2kM-YQ-RCn"/>
                             <constraint firstItem="gRm-84-nUK" firstAttribute="bottom" secondItem="Y5t-CI-t7g" secondAttribute="bottom" constant="20" id="2zk-zz-Hh9"/>
                             <constraint firstItem="Kp8-8z-lvJ" firstAttribute="leading" secondItem="gRm-84-nUK" secondAttribute="leading" constant="16" id="4OK-cP-faU"/>
+                            <constraint firstItem="zTy-h4-4H1" firstAttribute="centerX" secondItem="Lh1-T4-jeD" secondAttribute="centerX" id="9gk-Pi-bLr"/>
+                            <constraint firstItem="Lh1-T4-jeD" firstAttribute="bottom" secondItem="Kp8-8z-lvJ" secondAttribute="bottom" id="Dpb-qG-9e2"/>
+                            <constraint firstItem="Lh1-T4-jeD" firstAttribute="trailing" secondItem="Kp8-8z-lvJ" secondAttribute="trailing" id="Gqt-Cx-1Hh"/>
                             <constraint firstItem="gRm-84-nUK" firstAttribute="trailing" secondItem="yAh-R1-SoM" secondAttribute="trailing" constant="16" id="N0C-wa-IFW"/>
                             <constraint firstItem="dx4-pz-cjE" firstAttribute="leading" secondItem="gRm-84-nUK" secondAttribute="leading" constant="16" id="OE5-vK-q5b"/>
                             <constraint firstItem="gRm-84-nUK" firstAttribute="trailing" secondItem="Kp8-8z-lvJ" secondAttribute="trailing" constant="16" id="W6u-Xz-ITJ"/>
                             <constraint firstItem="gRm-84-nUK" firstAttribute="trailing" secondItem="dx4-pz-cjE" secondAttribute="trailing" constant="16" id="Y5S-Ya-qaU"/>
+                            <constraint firstItem="zTy-h4-4H1" firstAttribute="height" secondItem="Lh1-T4-jeD" secondAttribute="height" multiplier="0.5" id="cPF-gv-JBP"/>
                             <constraint firstItem="yAh-R1-SoM" firstAttribute="leading" secondItem="gRm-84-nUK" secondAttribute="leading" constant="16" id="doq-dB-PtB"/>
+                            <constraint firstItem="zTy-h4-4H1" firstAttribute="width" secondItem="Lh1-T4-jeD" secondAttribute="width" multiplier="0.5" id="fd0-GD-Efp"/>
+                            <constraint firstItem="Lh1-T4-jeD" firstAttribute="width" secondItem="Kp8-8z-lvJ" secondAttribute="height" multiplier="5:18" id="ng3-cS-fSa"/>
                             <constraint firstItem="yAh-R1-SoM" firstAttribute="top" secondItem="dx4-pz-cjE" secondAttribute="bottom" constant="4" id="pKd-aS-CJs"/>
                             <constraint firstItem="Kp8-8z-lvJ" firstAttribute="top" secondItem="gRm-84-nUK" secondAttribute="top" constant="10" id="rD6-sB-c8h"/>
+                            <constraint firstItem="zTy-h4-4H1" firstAttribute="centerY" secondItem="Lh1-T4-jeD" secondAttribute="centerY" id="sMU-N0-5ei"/>
                             <constraint firstItem="gRm-84-nUK" firstAttribute="trailing" secondItem="Y5t-CI-t7g" secondAttribute="trailing" constant="16" id="tTD-yc-ECs"/>
                             <constraint firstItem="Y5t-CI-t7g" firstAttribute="leading" secondItem="gRm-84-nUK" secondAttribute="leading" constant="16" id="u05-hG-Bat"/>
                         </constraints>
