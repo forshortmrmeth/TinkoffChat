@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     @IBOutlet var uiEditButton: UIButton!
     @IBOutlet var uiTitle: UILabel!
