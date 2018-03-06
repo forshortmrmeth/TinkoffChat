@@ -13,8 +13,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var uiEditButton: UIButton!
     @IBOutlet var uiTitle: UILabel!
     @IBOutlet var uiProfilePicture: UIImageView!
-    
     @IBOutlet var uiChangePhotoButton: RoundButton!
+    
     var uiAlert: UIAlertController!
     var uiImagePicker: UIImagePickerController!
     
