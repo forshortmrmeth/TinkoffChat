@@ -30,6 +30,19 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         print(uiEditButton.frame)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var profileImage: UIImage!
+        
+        if  let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            profileImage = image
+        }
+        else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImage = image
+        }
+        uiProfilePicture.image = profileImage
+        picker.dismiss(animated:true, completion: nil)
+    }
+    
     func createImagePickerController(sourceType: UIImagePickerControllerSourceType, allowsEditing: Bool){
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             uiImagePicker = UIImagePickerController()
