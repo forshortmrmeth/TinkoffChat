@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet var uiEditButton: UIButton!
     @IBOutlet var uiTitle: UILabel!
@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var uiChangePhotoButton: RoundButton!
     var uiAlert: UIAlertController!
+    var uiImagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,38 @@ class ProfileViewController: UIViewController {
 
     }
     
+    func createImagePickerController(sourceType: UIImagePickerControllerSourceType, allowsEditing: Bool){
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            uiImagePicker = UIImagePickerController()
+            uiImagePicker.delegate = self
+            uiImagePicker.sourceType = sourceType
+            uiImagePicker.allowsEditing = allowsEditing
+            self.present(uiImagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func onCapturePhoto(action: UIAlertAction) {
+        print("Capture!")
+
+        self.createImagePickerController(sourceType: .camera, allowsEditing: false)
+    }
+    
+    func onSelectPhotoFromGallery(action: UIAlertAction) {
+        self.createImagePickerController(sourceType: .photoLibrary, allowsEditing: true)
+    }
+    
     func createAlertController() {
         uiAlert = UIAlertController()
-        let capturePhotoAction = UIAlertAction(title: "Сделать фото", style: .default)
-        let selectPhotoFromGalleryAction = UIAlertAction(title: "Выбрать из галереи", style: .default)
+        let capturePhotoAction = UIAlertAction(
+            title: "Сделать фото",
+            style: .default,
+            handler: onCapturePhoto
+        )
+        let selectPhotoFromGalleryAction = UIAlertAction(
+            title: "Выбрать из галереи",
+            style: .default,
+            handler: onSelectPhotoFromGallery
+        )
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         
         uiAlert.addAction(capturePhotoAction)
