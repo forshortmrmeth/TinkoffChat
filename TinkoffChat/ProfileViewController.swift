@@ -43,7 +43,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         self.createImagePickerController(sourceType: .camera, allowsEditing: false)
         
         if !(UIImagePickerController.isSourceTypeAvailable(.camera)) {
-            let warningAlert = UIAlertController(title: "Ошибка!", message: "Невозможно использовать камеру", preferredStyle: .alert);
+            let warningAlert = UIAlertController(
+                title: "Ошибка",
+                message: "Невозможно использовать камеру",
+                preferredStyle: .alert
+            );
             let closeAction = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
             
             warningAlert.addAction(closeAction)
