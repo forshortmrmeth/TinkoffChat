@@ -8,110 +8,6 @@
 
 import UIKit
 
-let chatData = [
-    [
-        "name": "Николай",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    [
-        "name": "Алиса",
-        "message": "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people. Like pit bulls. The dog of dogs. Pit bull can be the right man's best friend... or the wrong man's worst enemy. You going to give me a dog for a pet, give me a pit bull. Give me... Raoul. Right, Omar? Give me Raoul.",
-        "status": "online"
-    ],
-    [
-        "name": "Андрей",
-        "message": "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people. Like pit bulls. The dog of dogs. Pit bull can be the right man's best friend... or the wrong man's worst enemy. You going to give me a dog for a pet, give me a pit bull. Give me... Raoul. Right, Omar? Give me Raoul.",
-        "status": "online"
-    ],
-    [
-        "name": "Александр",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    [
-        "name": "Анастасия",
-        "message": "🍓🍓🍓",
-        "status": "online"
-    ],
-    [
-        "name": "Евгения",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    [
-        "name": "Петр Великий",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    [
-        "name": "Мыкола",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "online"
-    ],
-    
-    [
-        "name": "Bob Offline",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Alice Offline",
-        "message": "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people. Like pit bulls. The dog of dogs. Pit bull can be the right man's best friend... or the wrong man's worst enemy. You going to give me a dog for a pet, give me a pit bull. Give me... Raoul. Right, Omar? Give me Raoul.",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people. Like pit bulls. The dog of dogs. Pit bull can be the right man's best friend... or the wrong man's worst enemy. You going to give me a dog for a pet, give me a pit bull. Give me... Raoul. Right, Omar? Give me Raoul.",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ],
-    [
-        "name": "Bob",
-        "message": "Hello there! This is some long string",
-        "status": "offline"
-    ]
-]
-
 class ConversationsListTableViewController: UITableViewController {
     
     enum ChatSection: Int {
@@ -121,15 +17,18 @@ class ConversationsListTableViewController: UITableViewController {
     }
     
     private var formattedData = [
-        ChatSection: [[String: String]]
+        ChatSection: [ConversationModel]
     ]()
     
     func setData() {
-        formattedData[.online] = chatData.filter({ $0["status"] == "online" })
-        formattedData[.offline] = chatData.filter({ $0["status"] == "offline" })
+        print(chatDataCollection)
+        
+        formattedData[.online] = chatDataCollection.filter({ $0.online! == true })
+        formattedData[.offline] = chatDataCollection.filter({ $0.online! == false })
     }
     
     @IBOutlet weak var uiNavigationBar: UINavigationItem!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -170,7 +69,7 @@ class ConversationsListTableViewController: UITableViewController {
                 case .online:
                     return "Online"
                 default:
-                    return "Offline"
+                    return "History"
             }
         }
         
@@ -178,60 +77,21 @@ class ConversationsListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCellIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCellIdentifier", for: indexPath) as! ConversationsTableCellView
 
         if let chatSection = ChatSection(rawValue: indexPath.section), let chatInfo = formattedData[chatSection]?[indexPath.row] {
-                cell.textLabel?.text = chatInfo["name"]
-                cell.detailTextLabel?.text = chatInfo["message"]
+            cell.setMessageData(chatInfo)
         }
         
         return cell
     }
 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //  In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }

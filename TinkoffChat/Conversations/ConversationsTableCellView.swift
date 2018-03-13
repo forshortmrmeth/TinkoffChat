@@ -8,9 +8,10 @@
 
 import UIKit
 
-@IBDesignable
-class ConversationsListTableViewCell: UITableViewCell {
-
+class ConversationsTableCellView: UITableViewCell {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var messageText: UILabel!
+    @IBOutlet weak var dateText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +23,10 @@ class ConversationsListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setMessageData(_ messageInfo: ConversationModel) {
+        self.nameLabel?.text = messageInfo.name
+        self.messageText?.text = messageInfo.message
+        self.dateText?.text = messageInfo.formattedDate
+    }
     
 }

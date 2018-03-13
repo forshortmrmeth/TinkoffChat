@@ -10,10 +10,10 @@ import UIKit
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    @IBOutlet var uiEditButton: UIButton!
-    @IBOutlet var uiTitle: UILabel!
-    @IBOutlet var uiProfilePicture: UIImageView!
-    @IBOutlet var uiChangePhotoButton: RoundButton!
+    @IBOutlet weak var uiEditButton: UIButton!
+    @IBOutlet weak var uiTitle: UILabel!
+    @IBOutlet weak var uiProfilePicture: UIImageView!
+    @IBOutlet weak var uiChangePhotoButton: RoundButton!
     
     var uiImagePicker: UIImagePickerController!
     
@@ -25,6 +25,9 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             соответственно мы не имеем доступа к компоненту Button
         */
         // print(uiEditButton.frame)
+    }
+    @IBAction func onClickCloseBtn(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
