@@ -14,6 +14,7 @@
 		F5150E6B203DD367005CC905 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5150E6A203DD367005CC905 /* ProfileViewController.swift */; };
 		F5150E70203DD367005CC905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5150E6F203DD367005CC905 /* Assets.xcassets */; };
 		F5150E73203DD367005CC905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5150E71203DD367005CC905 /* LaunchScreen.storyboard */; };
+		F59C5153205821D200A72A82 /* ConversationsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59C5152205821D200A72A82 /* ConversationsListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F5150E6F203DD367005CC905 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5150E72203DD367005CC905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5150E74203DD367005CC905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F59C5152205821D200A72A82 /* ConversationsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				763A22552057C27C0076BE2A /* ConversationsListTableViewController.swift */,
+				F59C5152205821D200A72A82 /* ConversationsListTableViewCell.swift */,
 			);
 			path = Conversations;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50289D2204C141B00B5662B /* RoundButton.swift in Sources */,
+				F59C5153205821D200A72A82 /* ConversationsListTableViewCell.swift in Sources */,
 				F5150E6B203DD367005CC905 /* ProfileViewController.swift in Sources */,
 				763A22562057C27C0076BE2A /* ConversationsListTableViewController.swift in Sources */,
 				F5150E69203DD367005CC905 /* AppDelegate.swift in Sources */,
