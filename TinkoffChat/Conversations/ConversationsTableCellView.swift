@@ -29,7 +29,7 @@ class ConversationsTableCellView: UITableViewCell {
         self.dateText?.text = messageInfo.formattedDate
         
         if messageInfo.online! {
-            self.backgroundColor = UIColor.yellow
+            self.backgroundColor = UIColor(red: 0.1686, green: 0.898, blue: 0.2667, alpha: 1.0) /* #2be544 */
         } else {
             self.backgroundColor = UIColor.white
         }
