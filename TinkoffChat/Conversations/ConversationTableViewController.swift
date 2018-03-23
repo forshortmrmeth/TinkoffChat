@@ -2,7 +2,7 @@
 //  ConversationTableViewController.swift
 //  TinkoffChat
 //
-//  Created by Vladislav on 13.03.18.
+//  Created by v.kolesnikov on 22.03.2018.
 //  Copyright © 2018 Vladislav. All rights reserved.
 //
 
@@ -18,6 +18,10 @@ class ConversationTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    public func prepareView(title label: String) {
+        self.title = label
     }
 
     override func didReceiveMemoryWarning() {

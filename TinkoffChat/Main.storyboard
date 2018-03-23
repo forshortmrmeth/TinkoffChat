@@ -47,19 +47,21 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Egf-KD-qYl" firstAttribute="top" secondItem="0Eh-uR-4Xn" secondAttribute="bottom" constant="-3.5" id="2GC-jE-gd0"/>
+                                        <constraint firstAttribute="trailing" secondItem="Egf-KD-qYl" secondAttribute="trailing" constant="219" id="739-hZ-HNJ"/>
                                         <constraint firstItem="0Eh-uR-4Xn" firstAttribute="top" secondItem="N0c-Q6-EgW" secondAttribute="top" constant="4" id="KbL-XM-lbR"/>
                                         <constraint firstItem="pNG-h8-qEP" firstAttribute="top" secondItem="N0c-Q6-EgW" secondAttribute="top" constant="4" id="Kjs-Kd-poc"/>
-                                        <constraint firstAttribute="bottom" secondItem="Egf-KD-qYl" secondAttribute="bottom" constant="7.5" id="Yg9-2I-oVN"/>
-                                        <constraint firstItem="Egf-KD-qYl" firstAttribute="leading" secondItem="N0c-Q6-EgW" secondAttribute="leading" constant="16" id="avp-CV-L2U"/>
                                         <constraint firstAttribute="trailing" secondItem="pNG-h8-qEP" secondAttribute="trailing" constant="8" id="dme-1x-HZ9"/>
                                         <constraint firstItem="0Eh-uR-4Xn" firstAttribute="leading" secondItem="N0c-Q6-EgW" secondAttribute="leading" constant="15" id="eYh-L0-mFz"/>
+                                        <constraint firstItem="Egf-KD-qYl" firstAttribute="leading" secondItem="N0c-Q6-EgW" secondAttribute="leading" constant="16" id="fkT-kF-TQO"/>
+                                        <constraint firstAttribute="bottom" secondItem="Egf-KD-qYl" secondAttribute="bottom" constant="7.5" id="xxu-F2-Zfv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateText" destination="pNG-h8-qEP" id="N5q-QF-zin"/>
                                     <outlet property="messageText" destination="Egf-KD-qYl" id="aCV-v5-pKZ"/>
                                     <outlet property="nameLabel" destination="0Eh-uR-4Xn" id="9FF-an-JJk"/>
-                                    <segue destination="IBb-0S-jCs" kind="show" id="Kwz-p4-iJa"/>
+                                    <segue destination="IBb-0S-jCs" kind="show" identifier="conversation" id="Kp7-Ku-hdv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -84,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="-1320" y="134"/>
         </scene>
-        <!--Table View Controller-->
+        <!--User name-->
         <scene sceneID="COj-8s-Wmc">
             <objects>
-                <tableViewController id="IBb-0S-jCs" sceneMemberID="viewController">
+                <tableViewController id="IBb-0S-jCs" customClass="ConversationTableViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8My-ZW-84h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,10 +116,11 @@
                             <outlet property="delegate" destination="IBb-0S-jCs" id="mwZ-Hh-Yig"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="User name" id="svL-hg-JI9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vs3-cd-AYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-444" y="446"/>
+            <point key="canvasLocation" x="-373" y="396"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hJd-7I-Nai">
@@ -258,7 +261,6 @@
         <!--Navigation Controller-->
         <scene sceneID="cS8-te-lNQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jmY-bQ-uvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wU3-3K-5xS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0C7-7G-txh">
@@ -270,6 +272,7 @@
                         <segue destination="ImC-Ue-4Xv" kind="relationship" relationship="rootViewController" id="Sjw-2q-jiU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmY-bQ-uvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-444" y="-473"/>
         </scene>

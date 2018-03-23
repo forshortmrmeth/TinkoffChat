@@ -20,11 +20,12 @@ class ConversationsListTableViewController: UITableViewController {
         ChatSection: [ConversationModel]
     ]()
     
+//    private var selectedConversation: Array<ChatMessage>?
+    private var selectedConversation: ConversationModel?
+    
     func setData() {
-        print(chatDataCollection)
-        
-        formattedData[.online] = chatDataCollection.filter({ $0.online! == true })
-        formattedData[.offline] = chatDataCollection.filter({ $0.online! == false })
+        formattedData[.online] = chatData.filter({ $0.online == true })
+        formattedData[.offline] = chatData.filter({ $0.online == false })
     }
     
     @IBOutlet weak var uiNavigationBar: UINavigationItem!
@@ -85,13 +86,29 @@ class ConversationsListTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let chatSection = ChatSection(rawValue: indexPath.section)!
+        
+        if let conversation = formattedData[chatSection]?[indexPath.row] {
+            self.selectedConversation = conversation
+        }
+        
+        return indexPath
+    }
 
 
     // MARK: - Navigation
-
     //  In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        if (segue.identifier == "conversation") {
+            // Pass data to secondViewController before the transition
+            let secondViewController = segue.destination as! ConversationTableViewController
+            
+            secondViewController.prepareView(title: selectedConversation?.name ?? "User name")
+        }
     }
 }

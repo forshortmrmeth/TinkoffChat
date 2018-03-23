@@ -27,6 +27,12 @@ class ConversationsTableCellView: UITableViewCell {
         self.nameLabel?.text = messageInfo.name
         self.messageText?.text = messageInfo.message
         self.dateText?.text = messageInfo.formattedDate
+        
+        if messageInfo.online! {
+            self.backgroundColor = UIColor.yellow
+        } else {
+            self.backgroundColor = UIColor.white
+        }
     }
     
 }

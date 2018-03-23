@@ -8,20 +8,27 @@
 
 import Foundation
 
+protocol ConversationProtocol: class {
+    var name: String? { get set }
+    var message: String? { get set }
+    var online: Bool? { get set }
+    
+    var date: Date? { get set }
+}
+
 class ConversationModel: ConversationProtocol {
     var name: String?
     var message: String?
-    var date: Date?
     var online: Bool?
-    var hasUnreadMessages: Bool?
+    var date: Date?
     var formattedDate: String?
     
-    init(name: String, message: String, date: Date, online: Bool, hasUnreadMessages: Bool) {
+    init(name: String, message: String, online: Bool, date: Date) {
         self.name = name
         self.message = message
-        self.date = date
-        self.formattedDate = dateToString(date: date)
         self.online = online
+        self.date = date
+        self.formattedDate = self.dateToString(date: date)
     }
     
     func dateToString(date: Date) -> String {

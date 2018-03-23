@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         view.backgroundColor = .white
         
         // Do any additional setup after loading the view, typically from a nib.
-        let cornerRadius = uiChangePhotoButton.bounds.width / 2
+        let cornerRadius: CGFloat = uiChangePhotoButton.bounds.width / 2
         
         uiChangePhotoButton.layer.cornerRadius = cornerRadius
         uiProfilePicture.layer.cornerRadius = cornerRadius
