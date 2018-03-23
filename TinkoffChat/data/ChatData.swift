@@ -136,6 +136,7 @@ let chatData = plainData.map {
         name: $0["name"] as! String,
         message: $0["message"] as! String,
         online: $0["online"] as! Bool,
-        date: Date()
+        date: Date(),
+        messages: conversationMessages
     )
 }

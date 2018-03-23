@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias ChatMessageCollection = Array<ChatMessage>
+
 protocol ChatProtocol {
     var isIncoming: Bool {get set}
     var text: String {get set}

@@ -108,7 +108,10 @@ class ConversationsListTableViewController: UITableViewController {
             // Pass data to secondViewController before the transition
             let secondViewController = segue.destination as! ConversationTableViewController
             
-            secondViewController.prepareView(title: selectedConversation?.name ?? "User name")
+            secondViewController.prepareView(
+                title: selectedConversation?.name ?? "User name",
+                messages: selectedConversation?.messages ?? Array()
+            )
         }
     }
 }

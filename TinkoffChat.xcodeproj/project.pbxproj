@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		763A22562057C27C0076BE2A /* ConversationsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A22552057C27C0076BE2A /* ConversationsListTableViewController.swift */; };
+		768536542065550D006F17BC /* messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768536532065550D006F17BC /* messages.swift */; };
+		7685365620655CA4006F17BC /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7685365520655CA4006F17BC /* MessageTableViewCell.swift */; };
 		76DD75CC2063ABF300D16168 /* ConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD75CB2063ABF300D16168 /* ConversationTableViewController.swift */; };
 		76DD75CE2064F10600D16168 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD75CD2064F10600D16168 /* ChatMessage.swift */; };
 		F50289D0204B552E00B5662B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50289CF204B552E00B5662B /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		763A22552057C27C0076BE2A /* ConversationsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListTableViewController.swift; sourceTree = "<group>"; };
+		768536532065550D006F17BC /* messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messages.swift; sourceTree = "<group>"; };
+		7685365520655CA4006F17BC /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		76DD75CB2063ABF300D16168 /* ConversationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewController.swift; sourceTree = "<group>"; };
 		76DD75CD2064F10600D16168 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F50289CF204B552E00B5662B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -57,8 +61,18 @@
 				F59C515A205869B600A72A82 /* ConversationModel.swift */,
 				76DD75CB2063ABF300D16168 /* ConversationTableViewController.swift */,
 				76DD75CD2064F10600D16168 /* ChatMessage.swift */,
+				7685365520655CA4006F17BC /* MessageTableViewCell.swift */,
 			);
 			path = Conversations;
+			sourceTree = "<group>";
+		};
+		76853652206554F6006F17BC /* data */ = {
+			isa = PBXGroup;
+			children = (
+				F59C515C20586B6E00A72A82 /* ChatData.swift */,
+				768536532065550D006F17BC /* messages.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 		F5150E5C203DD367005CC905 = {
@@ -80,6 +94,7 @@
 		F5150E67203DD367005CC905 /* TinkoffChat */ = {
 			isa = PBXGroup;
 			children = (
+				76853652206554F6006F17BC /* data */,
 				763A22542057C2400076BE2A /* Conversations */,
 				F5150E68203DD367005CC905 /* AppDelegate.swift */,
 				F5150E6F203DD367005CC905 /* Assets.xcassets */,
@@ -88,7 +103,6 @@
 				F5150E74203DD367005CC905 /* Info.plist */,
 				F50289CF204B552E00B5662B /* Main.storyboard */,
 				F50289D1204C141B00B5662B /* RoundButton.swift */,
-				F59C515C20586B6E00A72A82 /* ChatData.swift */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -169,9 +183,11 @@
 				F50289D2204C141B00B5662B /* RoundButton.swift in Sources */,
 				F59C5153205821D200A72A82 /* ConversationsTableCellView.swift in Sources */,
 				76DD75CE2064F10600D16168 /* ChatMessage.swift in Sources */,
+				7685365620655CA4006F17BC /* MessageTableViewCell.swift in Sources */,
 				F5150E6B203DD367005CC905 /* ProfileViewController.swift in Sources */,
 				763A22562057C27C0076BE2A /* ConversationsListTableViewController.swift in Sources */,
 				F59C515B205869B600A72A82 /* ConversationModel.swift in Sources */,
+				768536542065550D006F17BC /* messages.swift in Sources */,
 				F5150E69203DD367005CC905 /* AppDelegate.swift in Sources */,
 				76DD75CC2063ABF300D16168 /* ConversationTableViewController.swift in Sources */,
 			);
